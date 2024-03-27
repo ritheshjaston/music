@@ -4,6 +4,8 @@ export default function Musics() {
     const [searchitem, setSearhitem] = useState('');
     const [searchQuery, setSearchQuery] = useState('happy');
     const [searchResults, setSearchResults] = useState(null);
+    // const [currentplay, setcurrentplay] = useState("");
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -33,7 +35,7 @@ export default function Musics() {
             {/* search bar */}
             <div className="searchbar">
                 <div className='searchitem'>
-                    <input type="text" className='searchinput' onChange={(e) => setSearhitem(e.target.value)} value={searchitem} />
+                    <input type="text" placeholder="Search the music you Love" className='searchinput' onChange={(e) => setSearhitem(e.target.value)} value={searchitem} />
                     <button onClick={handleclicksearch} className='searchbtn'>Search</button>
                 </div>
 
@@ -49,14 +51,14 @@ export default function Musics() {
                                 <div className="card-body">
                                     <h5 className="card-title">{track.album.name}</h5>
                                     <p className="card-text">Artists :
-                                    {
-                                        track.album.artists.map((nae)=>(
-                                          <>{nae.name}</>
-                                        ))
-                                    }
+                                        {
+                                            track.album.artists.map((nae) => (
+                                                <>{nae.name}</>
+                                            ))
+                                        }
                                     </p>
                                     <p>Release : {track.album.release_date}</p>
-                                    
+
                                     {/* <p>Duration: {Math.floor(track.duration_ms / 60000)}:{((track.duration_ms % 60000) / 1000).toFixed(0).padStart(2, '0')}</p> */}
                                     <audio src={track.preview_url} controls></audio>
                                 </div>
@@ -66,38 +68,7 @@ export default function Musics() {
                 </div>
             </div>
             {/* tracker */}
-            <div className="tracker">
-                <br />
-                <div className="controls">
-                    <tr>
-                        <td>
-                            0:00
-                        </td>
-                        <td>
-                            <div className='seektrack'></div>
-                        </td>
-                        <td>
-                            10:00
-                        </td>
-                    </tr>
-                </div>
-                <div className="controls">
-                    <tr>
-                        <td>
-                            <i className="gg-play-track-prev-o" ></i>
-                        </td>
-                        <td>
-                            <i className="gg-play-button-o"></i>
-                            {/* <i className="gg-play-stop-o"></i> */}
-                        </td>
-                        <td>
-                            <i className="gg-play-track-next-o"></i>
-                        </td>
-
-
-                    </tr>
-                </div>
-            </div>
+           
         </div>
     );
 }
