@@ -6,10 +6,6 @@ function App() {
     <>
       <Musics />
 
-      <div className="App"></div>
-
-      <Tracker/>
-
     </>
   );
 }
