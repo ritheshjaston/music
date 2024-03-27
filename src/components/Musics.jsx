@@ -10,7 +10,7 @@ export default function Musics() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://v1.nocodeapi.com/ritheshjaston/spotify/NmGfVMbAVNuXjQOE/search?q=${searchQuery}&type=track&perPage=50`);
+                const response = await fetch(``);
                 if (response.ok) {
                     const data = await response.json();
                     setSearchResults(data.tracks.items);
