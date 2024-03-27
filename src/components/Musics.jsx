@@ -8,7 +8,7 @@ export default function Musics() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`https://v1.nocodeapi.com/ritheshjaston/spotify/NmGfVMbAVNuXjQOE/search?q=${searchQuery}&type=track`);
+                const response = await fetch(`https://v1.nocodeapi.com/ritheshjaston/spotify/NmGfVMbAVNuXjQOE/search?q=${searchQuery}&type=track&perPage=50`);
                 if (response.ok) {
                     const data = await response.json();
                     setSearchResults(data.tracks.items);
@@ -29,7 +29,7 @@ export default function Musics() {
         setSearchQuery(searchitem);
     }
     return (
-        <div>
+        <div className='bground'>
             {/* search bar */}
             <div className="searchbar">
                 <div className='searchitem'>
@@ -55,6 +55,10 @@ export default function Musics() {
                                         ))
                                     }
                                     </p>
+                                    <p>Release : {track.album.release_date}</p>
+                                    
+                                    {/* <p>Duration: {Math.floor(track.duration_ms / 60000)}:{((track.duration_ms % 60000) / 1000).toFixed(0).padStart(2, '0')}</p> */}
+                                    <audio src={track.preview_url} controls></audio>
                                 </div>
                             </div>
                         </div>
