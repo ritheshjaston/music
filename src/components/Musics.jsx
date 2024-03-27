@@ -39,13 +39,27 @@ export default function Musics() {
 
             </div>
             {/* list music data */}
-            <div className="listmusic">
-                {searchResults && searchResults.map((track) => (
-                    <div key={track.id}>
-                        <h3>{track.name}</h3>
-                        {/* You can display other track information here */}
-                    </div>
-                ))}
+            <div className="listmusic container">
+                <div className="row">
+
+                    {searchResults && searchResults.map((track) => (
+                        <div key={track.album.id} className="col">
+                            <div className="card" >
+                                <img src={track.album.images[1].url} className="card-img-top" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{track.album.name}</h5>
+                                    <p className="card-text">Artists :
+                                    {
+                                        track.album.artists.map((nae)=>(
+                                          <>{nae.name}</>
+                                        ))
+                                    }
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
             {/* tracker */}
             <div className="tracker">

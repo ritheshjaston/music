@@ -12,6 +12,7 @@
     background-color:pink;
     position: fixed;
     top: 0;
+    z-index: 10;
 
 }
 .searchbtn{
@@ -51,4 +52,10 @@
 
 .listmusic{
     margin-top: 75px;
+}
+.listmusic{
+    margin-bottom: 100px;
+}
+.card{
+    width: 18rem;
 }
